@@ -49,7 +49,7 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   consolidated_cart = consolidate_cart(cart)
-  consolidated_cart_coupons_applied = apply_coupons(consolidate_cart,coupons)
+  consolidated_cart_coupons_applied = apply_coupons(consolidated_cart,coupons)
   consolidated_cart_all_discounts_applied = apply_clearance(consolidated_cart_coupons_applied)
   subtotal = consolidated_cart_all_discounts_applied.reduce(0){|total,cart_item| total + (cart_item[:count]*cart_item[:price])}
   total = (subtotal > 100 ? subtotal* 0.9 : subtotal)
